@@ -7,6 +7,8 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+User must be able to enter the owner and pet nformation. They should also be able to add additional feeatures like when the pet is doing different actions like walking, feeding, grooming, etc. They should also be able to view the different time constraints. 
+
 **b. Design changes**
 
 - Did your design change during implementation?
