@@ -28,6 +28,7 @@ User must be able to enter the owner and pet nformation. They should also be abl
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
 
+
 ---
 
 ## 3. AI Collaboration
