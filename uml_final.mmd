@@ -1,0 +1,68 @@
+%% Final PawPal+ class diagram (matches pawpal_system.py)
+classDiagram
+    class Owner {
+        +str owner_id
+        +str first_name
+        +str last_name
+        +str email
+        +str phone
+        +str address
+        +list~Pet~ pets
+        +add_pet(pet)
+        +remove_pet(pet_id)
+        +get_pet_by_id(pet_id)
+        +update_contact_info(email, phone, address)
+        +get_all_tasks()
+    }
+
+    class Pet {
+        +str pet_id
+        +str name
+        +str species
+        +str breed
+        +int age
+        +float weight
+        +str medical_notes
+        +str owner_id
+        +list~Task~ tasks
+        +add_task(task)
+        +remove_task(task_id)
+        +get_upcoming_tasks()
+    }
+
+    class Task {
+        +str task_id
+        +str title
+        +str description
+        +TaskType type
+        +datetime due_at
+        +str pet_id
+        +TaskStatus status
+        +int recurrence_days
+        +int priority
+        +mark_complete()
+        +reschedule(new_due_at)
+        +is_overdue(now)
+        +create_next_recurring_task()
+    }
+
+    class Scheduler {
+        +str scheduler_id
+        +Owner owner
+        +list~Task~ task_queue
+        +add_task(task)
+        +remove_task(task_id)
+        +get_tasks_for_pet(pet_id)
+        +get_tasks_for_date(date)
+        +get_today_schedule()
+        +sort_by_time()
+        +filter_by_status(status)
+        +filter_by_pet_name(substr)
+        +detect_time_conflicts()
+        +complete_task(task_id)
+    }
+
+    Owner "1" --> "*" Pet : owns
+    Pet "1" --> "*" Task : has
+    Scheduler --> Owner : reads pets / tasks via
+    Scheduler ..> Task : manages views of
